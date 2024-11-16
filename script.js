@@ -1,5 +1,4 @@
-// ... código existente ...
-
+// Array de preguntas
 const preguntas = [
     {
         pregunta: "¿Cuál es la capital de Francia?",
@@ -25,68 +24,94 @@ const preguntas = [
         pregunta: "¿Quién pintó la Mona Lisa?",
         opciones: ["Van Gogh", "Miguel Ángel", "Leonardo da Vinci", "Pablo Picasso"],
         respuestaCorrecta: 2
-    },
-    {
-        pregunta: "¿Cuál es el océano más grande?",
-        opciones: ["Atlántico", "Índico", "Pacífico", "Ártico"],
-        respuestaCorrecta: 2
-    },
-    {
-        pregunta: "¿En qué año se fundó Google?",
-        opciones: ["1998", "2000", "1995", "2001"],
-        respuestaCorrecta: 0
-    },
-    {
-        pregunta: "¿Cuál es el hueso más largo del cuerpo humano?",
-        opciones: ["Húmero", "Fémur", "Tibia", "Radio"],
-        respuestaCorrecta: 1
-    },
-    {
-        pregunta: "¿Cuál es el país más grande del mundo?",
-        opciones: ["China", "Estados Unidos", "Canadá", "Rusia"],
-        respuestaCorrecta: 3
-    },
-    {
-        pregunta: "¿Cuál es el animal terrestre más rápido?",
-        opciones: ["Guepardo", "León", "Antílope", "Tigre"],
-        respuestaCorrecta: 0
     }
 ];
 
-// Función mejorada para obtener preguntas aleatorias
+// Variables globales
+let puntaje = 0;
+let preguntasUsadas = [];
+
+// Elementos del DOM
+const elementoPregunta = document.getElementById('pregunta');
+const elementoOpciones = document.getElementById('opciones');
+const botonSiguiente = document.getElementById('siguiente');
+const elementoPuntaje = document.getElementById('puntos');
+
+// Función para obtener pregunta aleatoria
 function obtenerPreguntaAleatoria() {
     const preguntasDisponibles = preguntas.filter((_, index) => !preguntasUsadas.includes(index));
     
     if (preguntasDisponibles.length === 0) {
-        // Si ya se usaron todas las preguntas, reiniciar el juego
         preguntasUsadas = [];
-        elementoPregunta.textContent = '¡Has completado todas las preguntas! Tu puntaje final es: ' + puntaje;
-        elementoOpciones.innerHTML = '';
-        botonSiguiente.textContent = 'Reiniciar Juego';
         return null;
     }
-
-    // Seleccionar una pregunta aleatoria de las disponibles
+    
     const indiceAleatorio = Math.floor(Math.random() * preguntasDisponibles.length);
     const indicePregunta = preguntas.indexOf(preguntasDisponibles[indiceAleatorio]);
     preguntasUsadas.push(indicePregunta);
-    
-    // Mezclar el orden de las opciones
-    const preguntaSeleccionada = {...preguntas[indicePregunta]};
-    const opcionesMezcladas = [...preguntaSeleccionada.opciones];
-    
-    // Algoritmo Fisher-Yates para mezclar las opciones
-    for (let i = opcionesMezcladas.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [opcionesMezcladas[i], opcionesMezcladas[j]] = [opcionesMezcladas[j], opcionesMezcladas[i]];
-    }
-    
-    // Actualizar la respuesta correcta según el nuevo orden
-    const respuestaCorrectaOriginal = preguntaSeleccionada.opciones[preguntaSeleccionada.respuestaCorrecta];
-    preguntaSeleccionada.respuestaCorrecta = opcionesMezcladas.indexOf(respuestaCorrectaOriginal);
-    preguntaSeleccionada.opciones = opcionesMezcladas;
-    
-    return preguntaSeleccionada;
+    return preguntas[indicePregunta];
 }
 
-// ... resto del código existente ...
+// Función para mostrar la pregunta
+function mostrarPregunta(pregunta) {
+    elementoPregunta.textContent = pregunta.pregunta;
+    elementoOpciones.innerHTML = '';
+    
+    pregunta.opciones.forEach((opcion, index) => {
+        const boton = document.createElement('button');
+        boton.textContent = opcion;
+        boton.classList.add('opcion');
+        boton.addEventListener('click', () => verificarRespuesta(index, pregunta.respuestaCorrecta));
+        elementoOpciones.appendChild(boton);
+    });
+}
+
+// Función para verificar la respuesta
+function verificarRespuesta(respuestaUsuario, respuestaCorrecta) {
+    const botones = elementoOpciones.getElementsByClassName('opcion');
+    
+    for (let boton of botones) {
+        boton.disabled = true;
+    }
+    
+    if (respuestaUsuario === respuestaCorrecta) {
+        botones[respuestaUsuario].classList.add('correcta');
+        puntaje++;
+        elementoPuntaje.textContent = puntaje;
+    } else {
+        botones[respuestaUsuario].classList.add('incorrecta');
+        botones[respuestaCorrecta].classList.add('correcta');
+    }
+    
+    botonSiguiente.style.display = 'block';
+    botonSiguiente.textContent = 'Siguiente Pregunta';
+}
+
+// Event listener para el botón
+botonSiguiente.addEventListener('click', function() {
+    if (botonSiguiente.textContent === 'Comenzar') {
+        const pregunta = obtenerPreguntaAleatoria();
+        if (pregunta) {
+            mostrarPregunta(pregunta);
+            botonSiguiente.style.display = 'none';
+        }
+    } else {
+        const pregunta = obtenerPreguntaAleatoria();
+        if (pregunta) {
+            mostrarPregunta(pregunta);
+            botonSiguiente.style.display = 'none';
+        } else {
+            elementoPregunta.textContent = '¡Juego terminado! Tu puntaje final es: ' + puntaje;
+            elementoOpciones.innerHTML = '';
+            botonSiguiente.textContent = 'Reiniciar Juego';
+            puntaje = 0;
+            elementoPuntaje.textContent = puntaje;
+        }
+    }
+});
+
+// Asegurarse de que el botón esté visible al inicio
+document.addEventListener('DOMContentLoaded', function() {
+    botonSiguiente.textContent = 'Comenzar';
+    botonSiguiente.style.display = 'block';
+});
