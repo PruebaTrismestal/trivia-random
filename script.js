@@ -28,8 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             pregunta: "¿Cuáles son los modos de participación directa de la gente que tenemos en Argentina?",
-            respuesta: "", // Aquí irá la respuesta cuando la proporciones
+            respuesta: "La Iniciativa Popular: Los ciudadanos pueden presentar un proyecto de ley para que sea tratado por el congreso de la nación.\n\nLa Consulta Popular: Los ciudadanos son consultados sobre alguna decisión importante para el futuro del país.",
             tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuáles son las épocas más importantes dentro de la evolución del concepto de ciudadano?",
+            opciones: [
+                // Aquí irán las opciones cuando las proporciones
+            ],
+            respuestaCorrecta: 0,
+            tipo: "opcionMultiple"
         }
     ];
 
@@ -133,6 +141,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     botonSiguiente.onclick = function() {
+        // Si es la primera vez que se hace clic en el botón
+        if (this.textContent === 'Comenzar') {
+            elementoPregunta.innerHTML = `
+                <div class="mensaje-inicial">
+                    En las preguntas que aparezca la opción de "Ver Respuesta", antes de tocar el botón hay que responder oralmente y luego tocar el botón para verificar si es correcta.
+                </div>
+            `;
+            this.textContent = 'Entendido, ¡Empecemos!';
+            return;
+        }
+        
+        // Si es el segundo clic (después de mostrar las instrucciones)
+        if (this.textContent === 'Entendido, ¡Empecemos!') {
+            const pregunta = obtenerPreguntaAleatoria();
+            if (pregunta) {
+                if (pregunta.tipo === "opcionMultiple") {
+                    mostrarPreguntaOpcionMultiple(pregunta);
+                } else {
+                    mostrarPreguntaOral(pregunta);
+                }
+                this.style.display = 'none';
+            }
+            return;
+        }
+
+        // Código para las siguientes preguntas
         const pregunta = obtenerPreguntaAleatoria();
         if (pregunta) {
             if (pregunta.tipo === "opcionMultiple") {
