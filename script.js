@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let preguntasUsadas = [];
 
-    // Resto del código igual...
     function obtenerPreguntaAleatoria() {
         if (preguntasUsadas.length === preguntas.length) {
             return null;
@@ -105,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         botonSiguiente.style.display = 'block';
+        botonSiguiente.textContent = 'Siguiente Pregunta'; // Cambio aquí
     }
 
     botonSiguiente.onclick = function() {
@@ -121,4 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
     };
+
+    // Aseguramos que el botón inicial diga "Comenzar"
+    botonSiguiente.textContent = 'Comenzar';
 });
