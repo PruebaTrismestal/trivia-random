@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         botonSiguiente.style.display = 'block';
-        botonSiguiente.textContent = 'Siguiente Pregunta'; // Cambio aquí
+        botonSiguiente.textContent = 'Siguiente Pregunta';
     }
 
     botonSiguiente.onclick = function() {
@@ -113,7 +113,18 @@ document.addEventListener('DOMContentLoaded', function() {
             mostrarPregunta(pregunta);
             this.style.display = 'none';
         } else {
-            elementoPregunta.textContent = `¡Juego terminado! Puntaje final: ${puntaje} de ${preguntas.length}`;
+            let mensajeFinal = '';
+            if (puntaje >= 8) {
+                mensajeFinal = '¡¡Felicidades, se nota que estudiaste!!';
+            } else if (puntaje >= 6) {
+                mensajeFinal = '¡Felicidades, aprobaste!';
+            } else if (puntaje >= 4) {
+                mensajeFinal = 'Oh no, reprobaste. Estudia más';
+            } else {
+                mensajeFinal = 'No estudiaste nada';
+            }
+
+            elementoPregunta.textContent = `¡Juego terminado! Puntaje final: ${puntaje} de ${preguntas.length}. ${mensajeFinal}`;
             elementoOpciones.innerHTML = '';
             this.textContent = 'Reiniciar';
             this.onclick = function() {
