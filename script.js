@@ -10,10 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             pregunta: "Además del voto, ¿Qué otras condiciones deben darse en un país democrático?",
             opciones: [
-                "1-Solo una persona puede presentarse como candidato en todas las elecciones.\n2-Las elecciones son periódicas, pero no son libres ni competitivas.\n3-No existe la separación de poderes entre el ejecutivo, legislativo y judicial.\n4-No hay garantía de derechos civiles ni libertad de asociación.",
-                "1-El poder judicial depende completamente del ejecutivo.\n2-Los ciudadanos no tienen derecho a protestar ni a organizarse.\n3-No se permiten elecciones libres, solo referendos.\n4-Los derechos humanos no son respetados de manera plena.",
-                "1-Que Los Gobernantes Representen a la mayoría\n2-Que ejerzan el poder por un tiempo limitado y luego son reemplazados por otros\n3-Que ejerzan poder en forma absoluta\n4-Que haya diferentes opciones, ideas políticas y opiniones",
-                "1-El gobierno es elegido por un solo partido político.\n2-Los derechos de expresión están restringidos para evitar el desorden.\n3-Las elecciones son manipuladas para asegurar el resultado deseado.\n4-Los medios de comunicación son controlados por el gobierno."
+                "1- Solo una persona puede presentarse como candidato en todas las elecciones.\n\n2- Las elecciones son periódicas, pero no son libres ni competitivas.\n\n3- No existe la separación de poderes entre el ejecutivo, legislativo y judicial.\n\n4- No hay garantía de derechos civiles ni libertad de asociación.",
+                
+                "1- El poder judicial depende completamente del ejecutivo.\n\n2- Los ciudadanos no tienen derecho a protestar ni a organizarse.\n\n3- No se permiten elecciones libres, solo referendos.\n\n4- Los derechos humanos no son respetados de manera plena.",
+                
+                "1- Que Los Gobernantes Representen a la mayoría\n\n2- Que ejerzan el poder por un tiempo limitado y luego son reemplazados por otros\n\n3- Que ejerzan poder en forma absoluta\n\n4- Que haya diferentes opciones, ideas políticas y opiniones",
+                
+                "1- El gobierno es elegido por un solo partido político.\n\n2- Los derechos de expresión están restringidos para evitar el desorden.\n\n3- Las elecciones son manipuladas para asegurar el resultado deseado.\n\n4- Los medios de comunicación son controlados por el gobierno."
             ],
             respuestaCorrecta: 2,
             tipo: "opcionMultiple"
@@ -21,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             pregunta: "¿Cuándo una democracia es directa y representativa?",
             respuesta: "En la Atenas antigua, los ciudadanos participaban directamente de las decisiones del gobierno.\n\nLos varones de Atenas, se encontraban, discutían y dialogaban sobre los asuntos públicos donde se votaban las ideas populares. Esta se llama Democracia Directa.\n\nLa Democracia representativa consiste en que los ciudadanos eligen un conjunto de representantes (como diputados, presidente, senadores, etc).",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuáles son los modos de participación directa de la gente que tenemos en Argentina?",
+            respuesta: "", // Aquí irá la respuesta cuando la proporciones
             tipo: "oral"
         }
     ];
