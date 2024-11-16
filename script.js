@@ -78,11 +78,24 @@ document.addEventListener('DOMContentLoaded', function() {
         elementoPregunta.textContent = pregunta.pregunta;
         elementoOpciones.innerHTML = '';
         
-        pregunta.opciones.forEach((opcion, index) => {
+        // Crear una copia de las opciones y sus índices
+        let opcionesConIndices = pregunta.opciones.map((opcion, index) => ({
+            texto: opcion,
+            indice: index
+        }));
+        
+        // Mezclar las opciones
+        for (let i = opcionesConIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opcionesConIndices[i], opcionesConIndices[j]] = [opcionesConIndices[j], opcionesConIndices[i]];
+        }
+        
+        // Crear los botones con las opciones mezcladas
+        opcionesConIndices.forEach(opcion => {
             const boton = document.createElement('button');
-            boton.textContent = opcion;
+            boton.textContent = opcion.texto;
             boton.classList.add('opcion');
-            boton.onclick = () => verificarRespuesta(index, pregunta.respuestaCorrecta);
+            boton.onclick = () => verificarRespuesta(opcion.indice, pregunta.respuestaCorrecta);
             elementoOpciones.appendChild(boton);
         });
     }
