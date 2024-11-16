@@ -124,8 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 mensajeFinal = 'No estudiaste nada';
             }
 
-            elementoPregunta.textContent = `¡Juego terminado! Puntaje final: ${puntaje} de ${preguntas.length}. ${mensajeFinal}`;
             elementoOpciones.innerHTML = '';
+            elementoPregunta.innerHTML = `
+                <div class="puntaje-final">¡Juego terminado! Puntaje final: ${puntaje} de ${preguntas.length}</div>
+                <div class="mensaje-final">${mensajeFinal}</div>
+            `;
+            
             this.textContent = 'Reiniciar';
             this.onclick = function() {
                 location.reload();
