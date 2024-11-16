@@ -43,7 +43,7 @@ h1 {
 }
 
 .opcion {
-    padding: 10px;
+    padding: 15px;
     background-color: #e9ecef;
     border: none;
     border-radius: 5px;
@@ -52,6 +52,9 @@ h1 {
     width: 100%;
     margin: 5px 0;
     font-size: 1rem;
+    white-space: pre-line;
+    text-align: left;
+    line-height: 1.5;
 }
 
 .opcion:hover {
@@ -91,7 +94,6 @@ h1 {
     font-weight: bold;
 }
 
-/* Estilos nuevos para el mensaje final */
 .mensaje-final {
     font-size: 1.8rem;
     font-weight: bold;
@@ -104,4 +106,44 @@ h1 {
     font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: center;
+}
+
+.respuesta-oral {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.botones-evaluacion {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-evaluacion {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-evaluacion.correcto {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-evaluacion.incorrecto {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-evaluacion:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
