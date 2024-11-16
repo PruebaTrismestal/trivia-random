@@ -33,10 +33,31 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             pregunta: "¿Cuáles son las épocas más importantes dentro de la evolución del concepto de ciudadano?",
+            respuesta: "Grecia: Todo varón libre, adulto nacido en la ciudad...\n\nCon la caída del Imperio Romano: La figura del ciudadano perdió fuerza y casi desapareció\n\nCon La Revolución Francesa y la de USA: Esta última fue la que más huella dejó, por su idea de libertad...",
+            tipo: "oral"
+        },
+        {
+            pregunta: "Los Pasos Más Importantes del Sufragio Argentino",
+            respuesta: "La Ley 140 Régimen Electoral Nacional\n\nLa Ley 8877 Sistema de Elecciones Nacionales\n\nLa Ley 13010 Ley del Voto Femenino\n\nLa Ley 26774 Ley de Ciudadanía Argentina\n\n(Explicación de cada una)",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuáles son las características del sufragio? Explica cada una",
+            respuesta: "Universal: Todos los ciudadanos mayores de edad pueden participar en la conducción del partido\n\nIgualdad: Cada voto tiene el mismo valor y peso\n\nSecreto: Los Votos se emiten en secreto para evitar extensiones\n\nObligatorio: Votar es un mandato constitucional",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuáles son los valores de la democracia como forma de vida? ¿En qué ámbitos se deben poner en juego?",
             opciones: [
-                // Aquí irán las opciones cuando las proporciones
+                "1- Voto\n\n2- Paz\n\n3- Libertad",
+                
+                "1- Trabajo\n\n2- Peronismo\n\n3- Igualdad",
+                
+                "1- Democracia\n\n2- Constitución\n\n3- Derechos",
+                
+                "1- Tolerancia\n\n2- Respeto\n\n3- Solidaridad\n\nEstos valores se deben poner en juego en todos los ámbitos de la vida: familia, escuela, trabajo, etc."
             ],
-            respuestaCorrecta: 0,
+            respuestaCorrecta: 3,
             tipo: "opcionMultiple"
         }
     ];
