@@ -91,16 +91,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Crear los botones con las opciones mezcladas
-        opcionesConIndices.forEach(opcion => {
+        opcionesConIndices.forEach((opcion, posicion) => {
             const boton = document.createElement('button');
             boton.textContent = opcion.texto;
             boton.classList.add('opcion');
-            boton.onclick = () => verificarRespuesta(opcion.indice, pregunta.respuestaCorrecta);
+            boton.setAttribute('data-posicion', posicion);
+            boton.onclick = () => verificarRespuesta(opcion.indice, pregunta.respuestaCorrecta, posicion);
             elementoOpciones.appendChild(boton);
         });
     }
 
-    function verificarRespuesta(respuestaUsuario, respuestaCorrecta) {
+    function verificarRespuesta(respuestaUsuario, respuestaCorrecta, posicionBoton) {
         const botones = elementoOpciones.getElementsByClassName('opcion');
         
         for (let boton of botones) {
@@ -108,12 +109,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (respuestaUsuario === respuestaCorrecta) {
-            botones[respuestaUsuario].classList.add('correcta');
+            botones[posicionBoton].classList.add('correcta');
             puntaje++;
             elementoPuntaje.textContent = puntaje;
         } else {
-            botones[respuestaUsuario].classList.add('incorrecta');
-            botones[respuestaCorrecta].classList.add('correcta');
+            botones[posicionBoton].classList.add('incorrecta');
+            // Encontrar y marcar la respuesta correcta
+            for (let boton of botones) {
+                if (boton.textContent === pregunta.opciones[respuestaCorrecta]) {
+                    boton.classList.add('correcta');
+                    break;
+                }
+            }
         }
         
         botonSiguiente.style.display = 'block';
