@@ -59,6 +59,16 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             respuestaCorrecta: 3,
             tipo: "opcionMultiple"
+        },
+        {
+            pregunta: "¿Cuáles son las características de la democracia como forma de vida?",
+            respuesta: "El respeto a los derechos de las personas\n\nLa igualdad de oportunidades\n\nLa Búsqueda por el bien común\n\nLa limitación del poder\n\nLa tolerancia",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Qué es la democracia plena y justicia social?",
+            respuesta: "", // Aquí necesitamos la respuesta correcta
+            tipo: "oral"
         }
     ];
 
