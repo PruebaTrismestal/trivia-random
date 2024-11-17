@@ -3,32 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ética y Ciudadania</title>
+    <title>Trivia Educativa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 class="titulo-instituto">Instituto Salesiano Lorenzo Massa</h1>
+    
     <div class="contenedor">
-        <h1>Ética y Ciudadania</h1>
-        
-        <div class="quiz-contenedor">
-            <div id="pregunta" class="pregunta">
-                ¡Presiona el botón para comenzar!
-            </div>
-            
-            <div id="opciones" class="opciones">
-            </div>
-
-            <button id="siguiente" class="btn-siguiente">
-                Comenzar
-            </button>
-            
-            <div id="puntaje" class="puntaje">
-                Puntaje: <span id="puntos">0</span>
-            </div>
+        <div id="pregunta"></div>
+        <div id="opciones"></div>
+        <button id="siguiente" class="btn-siguiente">Comenzar</button>
+        <div class="puntaje">
+            Puntos: <span id="puntos">0</span>
         </div>
     </div>
 
-    <!-- Importante: el script debe estar al final -->
     <script src="script.js"></script>
 </body>
 </html>
