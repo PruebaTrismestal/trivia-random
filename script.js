@@ -99,6 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
             pregunta: "¿Qué tipos y subtipos de formas de gobierno existen? ¿Cuáles son las características de república?",
             respuesta: "Existen dos formas de gobierno:\n\nLas Monarquías y las Repúblicas\n\nDentro de las monarquías hay dos subtipos:\n\n1- Las absolutas: el rey tiene autoridad concentrada, un gobierno sin límites jurídicos y su cargo es vitalicio y hereditario.\n\n2- La Parlamentaria: El monarca tiene autoridad limitada por el cuerpo legislativo",
             tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuál es el principio fundamental de la división de poderes y sus funciones?",
+            respuesta: "El Poder se reparte para evitar que una persona controle todo el estado.\n\nPoder Legislativo: encargado de aprobar leyes controla las acciones del gobierno\n\nPoder Judicial: velan por el cumplimiento de las leyes de los ciudadanos o instituciones\n\nPoder Ejecutivo: aplican leyes y administran el país",
+            tipo: "oral"
         }
     ];
 
