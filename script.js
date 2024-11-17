@@ -67,7 +67,37 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             pregunta: "¿Qué es la democracia plena y justicia social?",
-            respuesta: "", // Aquí necesitamos la respuesta correcta
+            respuesta: "Los Cinco derechos que hayas estudiado",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Cuáles son las características de los derechos humanos? ¿Por qué están relacionados los derechos con las obligaciones?",
+            respuesta: "1- Son derechos materiales por el hecho de que somos humanos\n\n2- Son universales ya que se reconocen para todas las personas\n\n3- Su cumplimiento es obligatorio",
+            tipo: "oral"
+        },
+        {
+            pregunta: "Cinco derechos de la declaración de derechos humanos",
+            respuesta: "Los Cinco derechos que hayas estudiado",
+            tipo: "oral"
+        },
+        {
+            pregunta: "Según el cuadro de las tres generaciones ¿qué valores se defienden y cómo se relacionan estos valores con los derechos de su generación?",
+            respuesta: "Primera Generación: Libertades Individuales\nLa libertad individual se refiere a que cada persona tiene derechos individuales, o sea... Se relaciona con el derecho a votar.\n\nSegunda Generación: Igualdad de Oportunidades\nTodos los ciudadanos tienen los mismos derechos, sin importar sus características. Se relacionan con el derecho a la salud ya que todos lo tienen.\n\nTercera Generación: Paz y Solidaridad\nLa Paz y Solidaridad dependen de uno mismo por ejemplo (El derecho a un ambiente limpio, depende de las personas)",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Qué es una Constitución y para qué sirve?",
+            respuesta: "Es la ley de leyes y deben someterse tanto los gobernantes como los gobernados, y sirve para organizar el país y proteger los derechos de los habitantes",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Qué debe tener toda Constitución?",
+            respuesta: "1- Un texto que declare su propia supremacía sobre todas las otras normas\n\n2- Una declaración de derechos de todos los habitantes de ese país\n\n3- Normas que establezcan un gobierno dividido en tres poderes: legislativo, ejecutivo y judicial\n\n4- El modo en el que la Constitución debe reformarse en el futuro",
+            tipo: "oral"
+        },
+        {
+            pregunta: "¿Qué tipos y subtipos de formas de gobierno existen? ¿Cuáles son las características de república?",
+            respuesta: "Existen dos formas de gobierno:\n\nLas Monarquías y las Repúblicas\n\nDentro de las monarquías hay dos subtipos:\n\n1- Las absolutas: el rey tiene autoridad concentrada, un gobierno sin límites jurídicos y su cargo es vitalicio y hereditario.\n\n2- La Parlamentaria: El monarca tiene autoridad limitada por el cuerpo legislativo",
             tipo: "oral"
         }
     ];
@@ -75,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let preguntasUsadas = [];
 
     function obtenerPreguntaAleatoria() {
-        if (preguntasUsadas.length === preguntas.length) {
+        if (preguntasUsadas.length === 10) {
             return null;
         }
         let indice;
@@ -220,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             elementoOpciones.innerHTML = '';
             elementoPregunta.innerHTML = `
-                <div class="puntaje-final">¡Juego terminado! Puntaje final: ${puntaje} de ${preguntas.length}</div>
+                <div class="puntaje-final">¡Juego terminado! Puntaje final: ${puntaje} de 10</div>
                 <div class="mensaje-final">${mensajeFinal}</div>
             `;
             
