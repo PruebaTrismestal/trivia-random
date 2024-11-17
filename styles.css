@@ -7,12 +7,12 @@ body {
 
 .titulo-instituto {
     text-align: center;
-    color: #000;
+    color: #ffffff;
     padding: 30px 0;
     margin: 0 0 20px 0;
-    background-color: #f8f9fa;
+    background-color: #000000;
     border-bottom: 3px solid #dee2e6;
-    font-family: Arial, sans-serif;
+    font-family: TechnicBold;
     font-size: 3em;
     font-weight: bold;
     text-transform: uppercase;
