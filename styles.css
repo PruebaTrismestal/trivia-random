@@ -35,6 +35,7 @@ body {
     padding: 10px;
     background-color: #f8f9fa;
     border-radius: 5px;
+    text-align: center;
 }
 
 .opcion {
@@ -47,8 +48,9 @@ body {
     cursor: pointer;
     border-radius: 5px;
     font-size: 1.2em;
-    text-align: left;
+    text-align: center;
     transition: background-color 0.3s;
+    white-space: pre-line;
 }
 
 .opcion:hover {
@@ -95,12 +97,15 @@ body {
     margin-bottom: 20px;
     font-size: 1.2em;
     line-height: 1.5;
+    text-align: center;
+    white-space: pre-line;
 }
 
 .botones-evaluacion {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .btn-evaluacion {
@@ -147,4 +152,41 @@ body {
     font-size: 1.2em;
     text-align: center;
     color: #28a745;
+}
+
+/* Estilos para asegurar que los saltos de línea se muestren correctamente */
+.opcion, .respuesta-oral {
+    white-space: pre-line;
+}
+
+/* Estilos para hacer el diseño más responsivo */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 10px;
+    }
+
+    .titulo-instituto {
+        font-size: 2em;
+        padding: 20px 0;
+    }
+
+    .opcion, .btn-siguiente, .btn-evaluacion {
+        font-size: 1em;
+    }
+}
+
+/* Estilos para mejorar la legibilidad */
+* {
+    box-sizing: border-box;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+/* Estilos para los botones deshabilitados */
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 }
