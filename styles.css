@@ -159,6 +159,36 @@ body {
     white-space: pre-line;
 }
 
+/* Estilos para el pie de página */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Estilo especial para la línea de créditos */
+.footer p:nth-child(4) {
+    margin: 15px 0;
+    font-style: italic;
+    color: #ffd700;
+}
+
 /* Estilos para hacer el diseño más responsivo */
 @media (max-width: 600px) {
     .contenedor {
@@ -172,6 +202,14 @@ body {
 
     .opcion, .btn-siguiente, .btn-evaluacion {
         font-size: 1em;
+    }
+
+    .footer {
+        padding: 15px 0;
+    }
+    
+    .footer p {
+        font-size: 0.9em;
     }
 }
 
